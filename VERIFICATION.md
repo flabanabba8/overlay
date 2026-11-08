@@ -1,0 +1,5 @@
+# Verification
+
+- Ten local tests pass: tool paths redirected with real files untouched, paths outside the overlay ignored, numbered hunks and new files, applying only accepted hunks (including a rejected bad edit in the middle), applying new files and leaving unlisted ones out, a real file changed meanwhile is refused, discard and input validation, shadow-to-real path mapping and terminal write confirmation, symlink escape, and the approval requirement on apply.
+- 2026-11-07 through Hermes's real tool path in a throwaway home: `read_file`, `patch` and `write_file` run via `model_tools.handle_function_call` inside an active overlay changed only the shadow (the real `app.py` stayed original and the new file did not exist on disk); the diff showed 2 files and 1 hunk each; `overlay_apply` through Hermes was blocked fail-closed because no person could confirm; the apply by the approved path wrote only the accepted file and rejected the other.
+- Not yet verified: a live agent session with a real model editing a real project, Windows, large trees.
